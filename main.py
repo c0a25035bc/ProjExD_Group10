@@ -1,6 +1,7 @@
 import pygame
 import os
 import sys
+import copy
 
 import actions
 import maps
@@ -569,7 +570,7 @@ class Game:
 
     def on_goal(self) -> None:
         """ゴールに着いたときに呼ばれる"""
-        self.maze = self.maze_bk # 迷路を初期化して穴についた色をリセット
+        self.maze = copy.deepcopy(self.maze_bk) # 迷路を初期化して穴についた色をリセット
         self.running = False
         self.cleared = True
         self.message = "GOAL!"
