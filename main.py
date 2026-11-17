@@ -21,7 +21,7 @@ TIMELIMIT = 60  # 制限時間（秒）
 BLOCK_W = 140  # ブロックの幅
 BLOCK_H = 34  # ブロックの高さ
 QUEUE_W = 60  # 行動リストに並ぶブロックの幅
-QUEUE_H = 20  # 行動リストに並ぶブロックの高さ
+QUEUE_H = 18.2  # 行動リストに並ぶブロックの高さ
 QUEUE_COLS = 5  # 行動リストの列数
 MARGIN = 2
 
@@ -816,7 +816,7 @@ class Game:
         time_text = self.font.render(f"残り時間：{int(self.remainingtime)}秒", True, (40, 40, 40))
         screen.blit(time_text, (px, 40))
 
-        screen.blit(self.font.render(f"行動リスト ({len(self.queue)}/{self.max_queue})", True,
+        screen.blit(self.font.render(f"行動リスト ({len(self.queue)}/{int(self.max_queue)})", True,
                                     (40, 40, 40)), (px, self.queue_top - 32))
         for i, act in enumerate(self.queue):
             current = self.running and i == self.step_index
